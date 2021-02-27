@@ -6,6 +6,7 @@ import Link from 'next/link'
 export default function HeroPost({
   title,
   coverImage,
+  thumbImage,
   date,
   excerpt,
   author,
@@ -17,6 +18,7 @@ export default function HeroPost({
         <CoverImage
           title={title}
           src={coverImage}
+          thumb={thumbImage}
           slug={slug}
           height={620}
           width={1240}

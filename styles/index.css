@@ -13,3 +13,14 @@
 /* Stop purging. */
 
 /* Your own custom utilities */
+.higher.ph-picture {
+  height: 360px;
+}
+.smaller.ph-avatar {
+  width: 50%;
+}
+.gray-filter {
+  /* opacity: 0.5; */
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}

@@ -1,27 +1,39 @@
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
 import Container from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import PlaceHolder from '../components/placeholder'
+import { getHomepagePosts } from '../lib/api'
+import { CMS_NAME, BLOG_LIST_LEN } from '../lib/constants'
 
-export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+
+export default function Index() {
+  const [allPosts, setAllPosts] = useState([]);
+  const heroPost = allPosts[0]?allPosts[0]:null
+  const morePosts = allPosts.slice(1)?allPosts.slice(1):[]
+  
+  useEffect(() => {
+    getHomepagePosts(BLOG_LIST_LEN).then(posts => setAllPosts(posts))
+    return () => {}
+  }, []);
+
   return (
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Ivory Blog | {CMS_NAME}</title>
         </Head>
         <Container>
           <Intro />
+          {!heroPost && <PlaceHolder />}
           {heroPost && (
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.coverImage}
+              thumbImage={heroPost.thumbImage}
               date={heroPost.date}
               author={heroPost.author}
               slug={heroPost.slug}
@@ -33,19 +45,4 @@ export default function Index({ allPosts }) {
       </Layout>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const allPosts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ])
-
-  return {
-    props: { allPosts },
-  }
 }

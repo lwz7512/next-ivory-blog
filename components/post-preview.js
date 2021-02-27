@@ -6,6 +6,7 @@ import Link from 'next/link'
 export default function PostPreview({
   title,
   coverImage,
+  thumbImage,
   date,
   excerpt,
   author,
@@ -18,6 +19,7 @@ export default function PostPreview({
           slug={slug}
           title={title}
           src={coverImage}
+          thumb={thumbImage}
           height={278}
           width={556}
         />
