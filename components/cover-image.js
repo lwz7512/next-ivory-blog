@@ -1,3 +1,15 @@
+/**
+ * hacked next/image:
+ * 
+ * - add style class to obtain the img element
+ * - use interval to check image load complete, rather than using onload
+ * 
+ * cause to do this:
+ * bigger image loading in page shows blank space, bad user expeience
+ * so, the next/image component have quite improvement space toward Gatsby Image component
+ * 
+ * @2021/02/27
+ */
 import React, { useState, useEffect, useRef } from 'react'
 
 import cn from 'classnames'
@@ -11,19 +23,20 @@ export default function CoverImage({ title, src, slug, height, width, thumb }) {
   const timeRef = useRef(0)
 
   useEffect(() => {
-    // query current image to listen image load event
+    // QUERY IMAGE ELEMENT BY CLASS, ADDED IN NXImage BELOW 
     const target = document.querySelector(`.img-id-${slug}`)
+
     // **** TRICKY HERE TO DETECT IMAGE LOAD COMPLETE ***
-    // TOOK COUPLES OF HOURS TO WORKS
-    // NORMAL EVENT load NOT WORKS!
+    // TOOK COUPLES OF HOURS TO MAKE IT WORKS
+    // COMMONLY USED EVENT `load` NOT WORKS ON IT!
     timeRef.current = setInterval(()=>{
       if(!target.complete) return
 
-      clearInterval(timeRef.current)
+      clearInterval(timeRef.current) // detect complete
       setLoaded(true)
     }, 200)
 
-    return () => clearInterval(timeRef.current)
+    return () => clearInterval(timeRef.current) // in case of removed
   }, []);
   
   const image = (
