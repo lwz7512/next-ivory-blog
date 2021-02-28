@@ -56,16 +56,16 @@ export default function CoverImage({ title, src, slug, height, width, thumb }) {
     return (
       <img 
         src={thumb ? thumb : DEFAULT_THUMB}
-        width={width*0.65}
-        height={height*0.65}
-        className={`absolute top-0 left-0 z-10 ${loaded?'hidden':'block'} gray-filter`}
+        width="100%"
+        height="100%"
+        className="absolute top-0 left-0 z-10 gray-filter"
       />
     )
   }
 
   return (
-    <div className="sm:mx-0 relative">
-      <ThumbImg />
+    <div className="sm:mx-0 relative overflow-hidden">
+      {!loaded && <ThumbImg />}
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
