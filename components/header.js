@@ -5,16 +5,17 @@ import cn from 'classnames'
 import Image from 'next/image'
 import { FaRegUserCircle } from 'react-icons/fa'
 
-import { getUser, checkSession } from '../lib/auth'
+import { getUser, checkSession, isAuthenticated } from '../lib/auth'
 
 export default function Header() {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-  const [user, setUser] = useState();
-  
+  const [user, setUser] = useState()
   
   useEffect(() => {
-    checkSession()
-    setUser(getUser())
+    checkSession() // init session from localstorage to memory
+    let validLogin = isAuthenticated()
+    if(validLogin) setUser(getUser())
+    if(!validLogin) setUser(null) //logout
   }, []);
 
   return (
@@ -65,8 +66,8 @@ export default function Header() {
             </li> :
             [
               { title: "Home", route: "/" },
-              { title: "My Posts", route: "/posts" },
               { title: "Profile", route: "/profile" },
+              { title: "Logout", route: "/logout" }
             ].map(({ route, title }) => (
               <li className="mt-3 md:mt-0 md:ml-6" key={title}>
                 <Link href={route}>
@@ -74,7 +75,6 @@ export default function Header() {
                 </Link>
               </li>
             ))
-          
           }
         </ul>
       </div>

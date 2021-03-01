@@ -24,3 +24,12 @@
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
+.btn-normal {
+  cursor: pointer;
+  @apply block bg-gray-800 text-center text-white p-3 duration-300 rounded-sm hover:bg-black w-full; 
+}
+
+.btn-disabled {
+  cursor: wait;
+  @apply block bg-gray-400 text-center text-white p-3 duration-300 rounded-sm w-full focus:outline-none;
+}

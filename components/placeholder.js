@@ -1,3 +1,6 @@
+/**
+ * dummy blog placeholder waiting for data fetching
+ */
 export default function PlaceHolder() {
   return (
     <div className="ph-item">
