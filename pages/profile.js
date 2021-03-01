@@ -35,6 +35,7 @@ export default function ProfilePage() {
         </section>
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+            {!posts.length && 'No posts yet.'}
             {posts.map((post) => (
               <PostPreview
                 key={post.slug}
