@@ -41,7 +41,7 @@ These steps can be done by following commmands:(assume you are using Mac)
 % cp .env.example .env.local
 ```
 
-> now copy and paste your API KEY to .env.local after `API_KEY=` field
+> now copy and paste your API KEY to .env.local after `API_KEY=` field, then:
 
 ```
 % yarn
