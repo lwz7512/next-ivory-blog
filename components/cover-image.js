@@ -54,12 +54,14 @@ export default function CoverImage({ title, src, slug, height, width, thumb }) {
 
   const ThumbImg = () => {
     return (
-      <NXImage 
-        src={thumb?thumb:DEFAULT_THUMB}
-        width={width}
-        height={height}
-        className="absolute top-0 left-0 z-10 gray-filter"
-      />
+      <div className="absolute" >
+        <NXImage 
+          src={thumb?thumb:DEFAULT_THUMB}
+          width={width}
+          height={height}
+          className="top-0 left-0 z-10 gray-filter"
+        />
+      </div>
     )
   }
 
