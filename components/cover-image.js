@@ -52,18 +52,12 @@ export default function CoverImage({ title, src, slug, height, width, thumb }) {
     />
   )
 
-  console.log('> loading thumb: '+thumb)
-  const safeHTTPThumb = thumb ? 
-    (
-      (thumb.indexOf('https')==0) ?`http${thumb.substr(5)}` : thumb
-    ) : DEFAULT_THUMB
-
   const ThumbImg = () => {
     return (
-      <img 
-        src={safeHTTPThumb}
-        width="100%"
-        height="100%"
+      <NXImage 
+        src={thumb?thumb:DEFAULT_THUMB}
+        width={width}
+        height={height}
         className="absolute top-0 left-0 z-10 gray-filter"
       />
     )
