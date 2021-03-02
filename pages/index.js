@@ -28,6 +28,7 @@ export default function Index() {
       <Layout>
         <Head>
           <title>Ivory Blog | {CMS_NAME}</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Container>
           <Intro />

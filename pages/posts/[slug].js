@@ -56,9 +56,9 @@ export default function Post() {
             <article className="mb-32 mt-16">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  Ivory Blog | {post.title}
                 </title>
-                {/* <meta property="og:image" content={post.ogImage.url} /> */}
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
               </Head>
               <PostHeader
                 title={post.title}
