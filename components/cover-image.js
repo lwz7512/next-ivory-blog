@@ -9,6 +9,11 @@
  * so, the next/image component have quite improvement space toward Gatsby Image component
  * 
  * @2021/02/27
+ * 
+ * made a small change because of http thumbnail image url under https domain
+ * using NXImage rather than html img
+ * 
+ * @2021/03/02
  */
 import React, { useState, useEffect, useRef } from 'react'
 
