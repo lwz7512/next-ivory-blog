@@ -8,13 +8,13 @@ import { logout } from '../lib/auth'
 
 export default function LogoutPage() {
 
+  const router = useRouter()
+  
   useEffect(() => {
     logout()
+    router.replace('/')
     return () => {}
   }, []);
-  
-  const router = useRouter()
-  router.replace('/')
 
   return (
     <Layout>
