@@ -28,7 +28,7 @@ Based on [Next.js blog-starter](https://github.com/vercel/next.js/tree/canary/ex
 
 - clone this repository
 - create an environment config file `.env.local` like .env.example under repo root directory
-- add your iversoft API KEY after `API_KEY=` in your newly created `env.local`
+- add your iversoft API KEY after `API_KEY=` in your newly created `.env.local`
 - install dependencies by `yarn` command
 - start dev server by `yarn dev` command
 
