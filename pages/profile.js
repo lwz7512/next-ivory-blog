@@ -25,7 +25,7 @@ export default function ProfilePage() {
   return (
     <Layout>
       <Container>
-        <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
+        <section className="flex-col md:flex-row flex items-center md:justify-between mt-8 md:mt-16 mb-16 md:mb-12">
           <h1 className="border-b-2 border-gray-600 text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
             My Profile
           </h1>
