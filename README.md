@@ -91,6 +91,7 @@ I've used CRA, Gatsbyjs for couples of projects, deeply understand the two solut
 - Add signin/signup page test cases.
 - Add running environment detection(browser or node) to avoid page component rendering exception while running test caused by browser `fetch` API.
 - Add form inputs strict validation, like length, format, currently no length limits regretfully.
+- Pagination for posts
 - and more...
 
 ## Credits

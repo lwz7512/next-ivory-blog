@@ -84,7 +84,7 @@ export default function SignupPage() {
               <div className="my-5 text-sm">
                   <label htmlFor="useremail" className="block text-black">User Email</label>
                   <input id="useremail" 
-                    type="text" autoFocus
+                    type="text"
                     className="rounded-sm px-4 py-3 mt-3 focus:outline-none bg-gray-100 w-full" 
                     placeholder="Valid Email Address" 
                     value={email}
