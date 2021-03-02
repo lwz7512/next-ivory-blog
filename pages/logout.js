@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react'
+
 import Layout from '../components/layout'
 import Container from '../components/container'
 import PostTitle from '../components/post-title'
@@ -6,7 +8,10 @@ import { logout } from '../lib/auth'
 
 export default function LogoutPage() {
 
-  logout()
+  useEffect(() => {
+    logout()
+    return () => {}
+  }, []);
   
   const router = useRouter()
   router.replace('/')
