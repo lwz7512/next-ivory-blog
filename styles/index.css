@@ -16,6 +16,14 @@
 .higher.ph-picture {
   height: 360px;
 }
+
+@media only screen and (max-width: 480px) {
+  /* For mobile phones: */
+  .higher.ph-picture {
+    height: 120px;
+  }
+}
+
 .smaller.ph-avatar {
   width: 50%;
 }

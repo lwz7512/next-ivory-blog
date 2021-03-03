@@ -20,7 +20,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import {default as NXImage} from 'next/image'
-import {DEFAULT_THUMB} from '../lib/constants'
+import {DEFAULT_THUMB, IMAGE_PLACE_HOLDER} from '../lib/constants'
 
 export default function CoverImage({ title, src, slug, height, width, thumb }) {
 
@@ -70,9 +70,17 @@ export default function CoverImage({ title, src, slug, height, width, thumb }) {
     )
   }
 
+  const ImgPlaceholder = () => {
+    return (
+      <div className="absolute top-0 left-0 z-10">
+        <img src={IMAGE_PLACE_HOLDER} width={width} height={height} />
+      </div>
+    )
+  }
+
   return (
     <div className="sm:mx-0 relative overflow-hidden">
-      {!loaded && <ThumbImg />}
+      {!loaded && <ImgPlaceholder />}
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
